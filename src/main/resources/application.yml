@@ -1,0 +1,37 @@
+#自定义配置所有项都不能为空!!!
+#mobiles为空通知所有人若不想通知任何人 请填入11111111111
+jenkins:
+  url: http://127.0.0.1:8080
+  username: admin
+  password: admin123
+ding:
+  token: 8d09
+  secret: SECc
+customize:
+  gitlab_info_map:
+    yunduan:
+      name: yunduan
+      uri: http://gitlab.xxx.com
+      token: aaa-bbbbbbbbbbbbbb
+    local222:
+      name: local222
+      uri: http://192.168.1.222:2222
+      token: cccdddddddddd
+  project_info_list:
+    - gitlabId: 23
+      project_name: 后台代码
+      jenkins_name: java_project
+      gitlab_name: java_project
+      gitlab_config: yunduan
+      key: repackage
+      mobiles:
+        - 11111111111
+    - gitlabId: 50
+      project_name: 前端代码
+      jenkins_name: vue_project
+      gitlab_name: vue_project
+      gitlab_config: local222
+      key: RP
+      mobiles:
+        - 11111111112
+        - 11111111113
