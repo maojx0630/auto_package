@@ -2,7 +2,6 @@ package com.github.maojx0630.automatic.model;
 
 import lombok.Data;
 
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -25,17 +24,4 @@ public class ProjectInfo {
   private String jenkinsName;
   /** 触发打包的关键词 */
   private String key;
-  /** 通知手机号 为空通知所有人若不想通知任何人 请填入11111111111 */
-  private List<String> mobiles;
-
-  // 0通知所有人 1不通知任何人 2通知列表中手机号
-  public int sendAll() {
-    if (mobiles == null || mobiles.isEmpty()) {
-      return 0;
-    }
-    if (mobiles.contains("11111111111")) {
-      return 1;
-    }
-    return 2;
-  }
 }

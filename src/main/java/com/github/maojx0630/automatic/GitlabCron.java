@@ -65,7 +65,7 @@ public class GitlabCron {
       if (Objects.isNull(gitlabConfig)) {
         log.error("没有对应的gitlab配置");
         try {
-          sendMsg.send(projectInfo.getGitlabName() + "的gitlab配置不正确!", true);
+          sendMsg.send(projectInfo.getGitlabName() + "的gitlab配置不正确!");
         } catch (Exception e) {
           e.printStackTrace();
         }
@@ -93,7 +93,7 @@ public class GitlabCron {
     } catch (Exception e) {
       e.printStackTrace();
       try {
-        sendMsg.send(e.getMessage(), true);
+        sendMsg.send(e.getMessage());
       } catch (Exception ex) {
         ex.printStackTrace();
       }
@@ -205,23 +205,7 @@ public class GitlabCron {
     }
     msg.append("jenkinsName : ").append(jenkinsName).append("\n");
     msg.append(lastMsg);
-    if (projectInfo.isPresent()) {
-      ProjectInfo info = projectInfo.get();
-      // 0通知所有人 1不通知任何人 2通知列表中手机号
-      int i = info.sendAll();
-      switch (i) {
-        case 0:
-          sendMsg.send(msg.toString(), true);
-          break;
-        case 2:
-          sendMsg.send(msg.toString(), info.getMobiles());
-          break;
-        default:
-          sendMsg.send(msg.toString());
-      }
-    } else {
-      sendMsg.send(msg.toString());
-    }
+    sendMsg.send(msg.toString());
   }
 
   private Call getCall(GitlabConfig gitlabConfig, ProjectInfo projectInfo) {

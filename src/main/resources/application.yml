@@ -24,14 +24,9 @@ customize:
       gitlab_name: java_project
       gitlab_config: yunduan
       key: repackage
-      mobiles:
-        - 11111111111
     - gitlabId: 50
       project_name: 前端代码
       jenkins_name: vue_project
       gitlab_name: vue_project
       gitlab_config: local222
       key: RP
-      mobiles:
-        - 11111111112
-        - 11111111113
